@@ -1,6 +1,7 @@
 .tabs-menu {
     @include clearfix;
     text-align: center;
+	background: $greyDark;
     
     &__tab {
         display: inline;
@@ -16,7 +17,7 @@
         
         // if checked than "active state"
         &:checked + .tabs-menu__label {
-            color: $blue;
+            color: $white;
             font-weight: 600;
             z-index: 1;
             
@@ -27,7 +28,7 @@
                 height: 2px;
                 width: calc(100% - 20px);
                 content: "";
-                background: $blue;
+                background: $white;
             }
         }
         
@@ -45,6 +46,7 @@
         position: relative;
         display: inline-block;
         padding: 0 $marginMedium;
+        color: $white;
         font-size: $fontSizeDefault;
         line-height: 50px;
         
@@ -63,9 +65,9 @@
         float: left;
         width: 100%;
         margin-top: -1px;
-        padding: $marginMedium 0;
+        padding: $marginExtraLarge;
         text-align: left;
         background: $white;
-        border-top: 10px solid $pageBackground;
+        border-top: 2px solid $green;
     }
 }
