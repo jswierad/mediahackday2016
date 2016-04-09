@@ -1,5 +1,5 @@
 ---
-product: terrible
+product: hackaton
 cluster: operations
 environment: test
 version: "v1"
