@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Foundation for Sites</title>
+		<title>CMS</title>
 		<link rel="stylesheet" href="css/app.css">
 	</head>
 <body>
@@ -38,16 +38,11 @@
 	                <div class="tabs-menu__content">
 		                <fieldset class="fieldset">
 		                	<legend><strong>Keywords</strong></legend>
-							<input type="text" class="tagsinput" value="Amsterdam,Washington" data-role="tagsinput" />
+							<input id="tags" type="text" class="tagsinput" value="cars,clothing" data-role="tagsinput" />
 		                </fieldset>
 		                
 	                	<fieldset class="fieldset">
 		                	<legend><strong>Sources</strong></legend>
-		                	<script>
-			                	$( document ).ready(function() {
-				                	$dummyValue = Math.floor((Math.random() * 100) + 1); 
-				                });
-			                </script>
 		                	<div class="row">
 			                	<div class="small-6 columns">
 				                	<input id="checkbox1" type="checkbox"><label for="checkbox1">Google</label>
@@ -202,8 +197,8 @@
     <script src="js/vendor/pizza/pizza.js"></script>
     <script>
         $(window).load(function() {
-            Pizza.init();
             $(document).foundation();
+            Pizza.init();
         });
     </script>
 	<script>
