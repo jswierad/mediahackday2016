@@ -12,7 +12,7 @@
 		<div class="tabs-menu">
 			<div class="tabs-menu__tab">
 	            <input class="tabs-menu__radio" type="radio" id="tab-1" name="tab-group">
-	            <label class="tabs-menu__label" for="tab-3">Content editor</label>
+	            <label class="tabs-menu__label" for="tab-1">Content editor</label>
 	            <div class="tabs-menu__panel">
 	                <div class="tabs-menu__content">
 	                    <div class="small-12 columns">
@@ -33,20 +33,50 @@
 	                <div class="tabs-menu__content">
 		                <fieldset class="fieldset">
 		                	<legend><strong>Keywords</strong></legend>
-		                	<input type="text" />
+							<input type="text" value="Amsterdam,Washington" data-role="tagsinput" />
+							<script>
+								var citynames = new Bloodhound({
+									datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+									queryTokenizer: Bloodhound.tokenizers.whitespace,
+									prefetch: {
+										url: 'citynames.json',
+										filter: function(list) {
+											return $.map(list, function(cityname) {
+												return { name: cityname };
+											});
+										}
+									}
+								});
+									
+								citynames.initialize();
+								
+								$('input').tagsinput({
+									typeaheadjs: {
+										name: 'citynames',
+										displayKey: 'name',
+										valueKey: 'name',
+										source: citynames.ttAdapter()
+									}
+								});
+							</script>
 		                </fieldset>
 		                
 	                	<fieldset class="fieldset">
 		                	<legend><strong>Sources</strong></legend>
+		                	<script>
+			                	$( document ).ready(function() {
+				                	$dummyValue = Math.floor((Math.random() * 100) + 1); 
+				                });
+			                </script>
 		                	<div class="row">
 			                	<div class="small-6 columns">
 				                	<input id="checkbox1" type="checkbox"><label for="checkbox1">Google</label>
 			                	</div>
 			                	<div class="small-3 columns">
-				                	expected revenue
+				                	<meter value="40" min="0" low="33" high="66" optimum="100" max="100"></meter>
 			                	</div>
 			                	<div class="small-3 columns">
-				                	relevancy
+				                	<meter value="50" min="0" low="33" high="66" optimum="100" max="100"></meter>
 			                	</div>
 		                	</div>
 		                	<div class="row">
@@ -54,10 +84,10 @@
 				                	<input id="checkbox2" type="checkbox"><label for="checkbox2">Facebook</label>
 			                	</div>
 			                	<div class="small-3 columns">
-				                	expected revenue
+				                	<meter value="60" min="0" low="33" high="66" optimum="100" max="100"></meter>
 			                	</div>
 			                	<div class="small-3 columns">
-				                	relevancy
+				                	<meter value="60" min="0" low="33" high="66" optimum="100" max="100"></meter>
 			                	</div>
 		                	</div>
 		                	<div class="row">
@@ -65,10 +95,10 @@
 									<input id="checkbox3" type="checkbox"><label for="checkbox3">Media.net</label>
 			                	</div>
 			                	<div class="small-3 columns">
-				                	expected revenue
+				                	<meter value="20" min="0" low="33" high="66" optimum="100" max="100"></meter>
 			                	</div>
 			                	<div class="small-3 columns">
-				                	relevancy
+				                	<meter value="5" min="0" low="33" high="66" optimum="100" max="100"></meter>
 			                	</div>
 		                	</div>
 		                	<div class="row">
@@ -76,10 +106,10 @@
 				                	<input id="checkbox4" type="checkbox"><label for="checkbox4">Adblade</label>
 			                	</div>
 			                	<div class="small-3 columns">
-				                	expected revenue
+				                	<meter value="80" min="0" low="33" high="66" optimum="100" max="100"></meter>
 			                	</div>
 			                	<div class="small-3 columns">
-				                	relevancy
+				                	<meter value="80" min="0" low="33" high="66" optimum="100" max="100"></meter>
 			                	</div>
 		                	</div>
 		                	<div class="row">
@@ -87,10 +117,10 @@
 				                	<input id="checkbox5" type="checkbox"><label for="checkbox5">Media Impact</label>
 			                	</div>
 			                	<div class="small-3 columns">
-				                	expected revenue
+				                	<meter value="40" min="0" low="33" high="66" optimum="100" max="100"></meter>
 			                	</div>
 			                	<div class="small-3 columns">
-				                	relevancy
+				                	<meter value="20" min="0" low="33" high="66" optimum="100" max="100"></meter>
 			                	</div>
 		                	</div>
 		                	<div class="row">
@@ -98,10 +128,10 @@
 				                	<input id="checkbox6" type="checkbox"><label for="checkbox6">Native Advertising</label>
 			                	</div>
 			                	<div class="small-3 columns">
-				                	expected revenue
+				                	<meter value="70" min="0" low="33" high="66" optimum="100" max="100"></meter>
 			                	</div>
 			                	<div class="small-3 columns">
-				                	relevancy
+				                	<meter value="40" min="0" low="33" high="66" optimum="100" max="100"></meter>
 			                	</div>
 		                	</div>
 		                	<div class="row">
@@ -109,10 +139,10 @@
 				                	<input id="checkbox7" type="checkbox"><label for="checkbox7">Youtube</label>
 			                	</div>
 			                	<div class="small-3 columns">
-				                	expected revenue
+				                	<meter value="30" min="0" low="33" high="66" optimum="100" max="100"></meter>
 			                	</div>
 			                	<div class="small-3 columns">
-				                	relevancy
+				                	<meter value="100" min="0" low="33" high="66" optimum="100" max="100"></meter>
 			                	</div>
 		                	</div>
 		                </fieldset>
@@ -124,7 +154,7 @@
 				                Expected satified users
 			                </div>
 			                <div class="small-2 columns">
-				                buttons
+				                <button class="button" type="submit">Submit</button>
 			                </div>
 		                </div>
 	                </div>
@@ -146,6 +176,8 @@
 	<script src="bower_components/jquery/dist/jquery.js"></script>
 	<script src="bower_components/what-input/what-input.js"></script>
 	<script src="bower_components/foundation-sites/dist/foundation.js"></script>
+	<script src="js/vendor/tagsinput.js"></script>
+	<script src="js/verdor/typeahead.bundle.min.js"></script>
 	<script src="js/app.js"></script>
 </body>
 </html>
