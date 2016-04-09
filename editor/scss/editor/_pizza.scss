@@ -44,3 +44,8 @@ ul[data-pie-id] {
     list-style: none;
     padding: $marginMedium;
 }
+
+.pie-wrapper {
+	@include clearfix;
+	margin-top: $marginExtraLarge;
+}
