@@ -93,7 +93,7 @@ func BlockedAds(w http.ResponseWriter, req *http.Request) {
 	encoder.Encode(ads)
 }
 
-// /clicked_ads/user_id [GET] - returns list of blocked ad_ids as Json ["id1", "id2"...]
+// /clicked_ads/user_id [GET] - returns list of clicked ad_ids as Json ["id1", "id2"...]
 func ClickedAds(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	params := mux.Vars(req)
