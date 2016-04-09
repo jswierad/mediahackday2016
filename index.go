@@ -17,6 +17,13 @@ var db *sqlx.DB
 func Monitor(w http.ResponseWriter, req *http.Request) {
 }
 
+// /delete_all [GET] - delete all stored blocked_ads
+func DeleteAll(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	_, err := db.Exec("DELETE FROM blocked_ads")
+	chkErr(err)
+}
+
 // /store_tags [POST] ["tag1", "tag2", "tag3"...]
 func StoreTags(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
@@ -87,6 +94,7 @@ func main() {
 
 	router := mux.NewRouter()
 	router.HandleFunc("/monitor", Monitor).Methods("GET")
+	router.HandleFunc("/delete_all", DeleteAll).Methods("GET")
 	router.HandleFunc("/store_tags", StoreTags).Methods("POST")
 	router.HandleFunc("/get_tags", GetTags).Methods("GET")
 	router.HandleFunc("/swipeout/{user_id:[0-9]+}/{ad_id:[a-zA-Z0-9]+}", SwipeOut).Methods("GET")
