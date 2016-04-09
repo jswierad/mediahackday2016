@@ -38,7 +38,7 @@
 	                <div class="tabs-menu__content">
 		                <fieldset class="fieldset">
 		                	<legend><strong>Keywords</strong></legend>
-							<input id="tags" type="text" class="tagsinput" value="cars,clothing" data-role="tagsinput" />
+							<input id="tags" type="text" class="tagsinput" value="" data-role="tagsinput" />
 		                </fieldset>
 		                
 	                	<fieldset class="fieldset">
@@ -232,6 +232,19 @@
 			$("#submit").fadeIn(50).fadeOut(50).fadeIn(50).fadeOut(50).fadeIn(50).fadeOut(50).fadeIn(50);
 			return false;
 		}
+
+		function loadTags() {
+			$.get("http://hackaton.aws.sanomaservices.nl/get_tags", function(data) {
+				var tags = JSON.parse(data);
+				$('#tags').tagsinput('removeAll');
+				tags.forEach(function(tag) {
+					$('#tags').tagsinput('add', tag);
+				})
+			});
+		}
+		$(document).ready(function() {
+			loadTags();
+		})
 	</script>
 	
 	<script src="js/app.js"></script>
