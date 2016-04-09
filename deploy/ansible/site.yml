@@ -1,1 +1,5 @@
 ---
+- hosts: all
+  name: Whatever
+  shell: ls
+
