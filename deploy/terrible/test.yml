@@ -26,7 +26,7 @@ loadbalancers:
       listener:
         - instance_port: 6060
           instance_proto: http
-          lb_port: 81
+          lb_port: 80
           lb_proto: http
       firewall:      
         - ingress:
