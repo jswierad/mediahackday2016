@@ -1,37 +1,39 @@
+// API server providing endpoints for AdSparency; Designed for Media Hack Day 2016, Berlin
 package main
 
 import (
 	"encoding/json"
 	"github.com/gorilla/mux"
-	//"html/template"
-	"net/http"
-	//	"os"
-	//"database/sql"
 	"github.com/jmoiron/sqlx"
 	_ "github.com/mattn/go-sqlite3"
 	"log"
+	"net/http"
+	"strings"
 )
 
 var db *sqlx.DB
 
-/*
-type Content struct {
-	Hostname string
-}
-
-func hello(w http.ResponseWriter, r *http.Request) {
-
-	t, _ := template.ParseFiles("tmpl/welcome.html")
-	c := Content{}
-	c.Hostname, _ = os.Hostname()
-	t.Execute(w, c)
-
-} */
-
+// /monitor [GET] - endpoint for ELB to perform healthchecks
 func Monitor(w http.ResponseWriter, req *http.Request) {
 }
 
+// /store_tags [POST] ["tag1", "tag2", "tag3"...]
+func StoreTags(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	var tags []string
+	decoder := json.NewDecoder(req.Body)
+	err := decoder.Decode(&tags)
+	chkErr(err)
+	log.Println(tags)
+	tags_str := strings.Join(tags, ",")
+	log.Println(tags_str)
+	_, err = db.Exec("UPDATE tags SET tags = ?", tags_str)
+	chkErr(err)
+}
+
+// /swipeout/user_id/ad_id [GET] - blacklist ad_id for user_id
 func SwipeOut(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	params := mux.Vars(req)
 	user_id := params["user_id"]
 	ad_id := params["ad_id"]
@@ -39,8 +41,23 @@ func SwipeOut(w http.ResponseWriter, req *http.Request) {
 	chkErr(err)
 }
 
-func BlockedAds(w http.ResponseWriter, req *http.Request) {
+// /get_tags [GET] - returns list of tags as Json ["tag1","tag2","tag3"...]
+func GetTags(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 
+	var tags []string
+	var tags_str string
+
+	db.Get(&tags_str, "SELECT tags FROM tags")
+
+	tags = strings.Split(tags_str, ",")
+	encoder := json.NewEncoder(w)
+	encoder.Encode(tags)
+}
+
+// /blocked_ads/user_id [GET] - returns list of blocked ad_ids as Json ["id1", "id2"...]
+func BlockedAds(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	params := mux.Vars(req)
 	user_id := params["user_id"]
 
@@ -70,6 +87,8 @@ func main() {
 
 	router := mux.NewRouter()
 	router.HandleFunc("/monitor", Monitor).Methods("GET")
+	router.HandleFunc("/store_tags", StoreTags).Methods("POST")
+	router.HandleFunc("/get_tags", GetTags).Methods("GET")
 	router.HandleFunc("/swipeout/{user_id:[0-9]+}/{ad_id:[a-zA-Z0-9]+}", SwipeOut).Methods("GET")
 	router.HandleFunc("/blocked_ads/{user_id:[0-9]+}", BlockedAds).Methods("GET")
 

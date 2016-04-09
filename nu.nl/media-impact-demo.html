@@ -18,11 +18,12 @@
            if (xhttp.readyState == 4 && xhttp.status == 200) {
             var response = xhttp.responseText;
             var obj = JSON.parse(response);
-            arg_str = 'no=' + obj.join('no=');
+            arg_str = ';no=' + obj.join(';no=');
            }
          };
          //xhttp.open("GET", "http://192.168.2.71:8000/blocked_ads/1", true);
-         xhttp.open("GET", "mock.json", false);
+         xhttp.open("GET", "http://hackaton.aws.sanomaservices.nl/blocked_ads/1", false);
+         //xhttp.open("GET", "mock.json", false);
          xhttp.send();
 	console.log("%cWelcome to MediaImpact Hackday Demopage!", "background: #f00; color: #fff; display: block; padding: 2px 10px;");
 	var winW = window.innerWidth || window.document.documentElement.clientWidth || window.document.body.clientWidth;
@@ -34,10 +35,11 @@
 		bgClick: !0,
 		stickySky: !0,
 		pageName: "sanoma",
-		target: "clothing;cars;" + arg_str
+		target: "clothing;cars" + arg_str + ';'
+// get a specific ad:
+//		target: "id=5380383;"
 	}
-
-    console.log(arg_str);
+    console.log('args ' + arg_str);
 	sas_loadHandler = function(f) {
 		if (!f.hasAd || f.tempName == "blocker") {
 			// do something when no ad will be delivered
@@ -59,13 +61,30 @@
         <a href="cars.html">cars</a>
         <a href="traveling.html">cars</a>
         <a href="hacking.html">hacking</a>
-        <button type="button" id="go-away">Go away please!</button>
 	<!-- Anfang AdCall für das Billboard -->
 		<div id="sas_5419">
 			<script type="text/javascript">
 			SmartAdServerAjax(false, 5419, sas_target);
 			</script>
 		</div>
+        <button type="button" id="go-away" onclick="block_ad()">Go away please!</button>
+        <script>
+        function block_ad() {
+             var xhttp = new XMLHttpRequest();
+             xhttp.onreadystatechange = function() {
+               if (xhttp.readyState == 4 && xhttp.status == 200) {
+                   console.log('yes');
+               }
+             };
+//             xhttp.open("GET", "mock.json", true);
+             var ad_id = document.querySelector(".oneTag").id.split('_')[2].replace('i', '');
+             console.log(ad_id);
+             xhttp.open("GET", "http://hackaton.aws.sanomaservices.nl/swipeout/1/" + ad_id, true);
+             xhttp.send();
+             location.reload();
+
+            }
+        </script>
 	<!-- Ende AdCall für das Billboard -->
     </body>
 </html>
