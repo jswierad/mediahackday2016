@@ -6,6 +6,14 @@ create table blocked_ads (
     ad_id varchar(20)
 );
 
+drop table clicked_ads;
+create table clicked_ads (
+    ID INTEGER PRIMARY KEY   AUTOINCREMENT,
+    user_id int,
+    ad_id varchar(20)
+);
+
+
 drop table articles;
 
 create table articles (
