@@ -1,0 +1,165 @@
+.tabs {
+    @include clearfix;
+    padding-top: $marginSmall;
+    background: $greyLightest;
+    
+    &__tab {
+        display: inline;
+        
+        &:first-of-type {
+            .tabs__label {
+                margin-left: $marginMedium;
+                border-left: 0;
+            }
+        }
+    
+        &:last-of-type {
+            .tabs__label {
+                margin-right: $marginMedium;
+            }
+        }
+        
+        &:not(:first-of-type) {
+            .tabs__label {
+                margin-left: -8px;
+            }
+        }
+    }
+    
+    &__radio {
+        position: fixed;
+        height: 1px;
+        width: 1px;
+        opacity: 0;
+        clip: rect(0 0 0 0);
+        z-index: -1;
+        
+        // if checked than "active state"
+        &:checked + .tabs__label {
+            color: $red;
+            font-weight: 600;
+            background: white;
+            border: 1px solid $greyMedium;
+            border-bottom: 1px solid $white;
+            border-radius: 3px;
+            z-index: 1;
+            
+            &:after {
+                position: absolute;
+                display: block;
+                bottom: 0;
+                height: 2px;
+                width: calc(100% - 20px);
+                content: "";
+                background: $red;
+            }
+        }
+        
+        // if checked then display the panel
+        &:checked ~ .tabs__panel {
+            display: inline;
+            z-index: $zIndexInPage + 1000;
+        }
+    }
+    
+    &__label {
+        position: relative;
+        display: inline-block;
+        padding: 0 $marginMedium;
+        font-size: $fontSizeDefault;
+        line-height: 50px;
+        border: 1px solid $greyMedium;
+        border-top: $greyLightest;
+        
+    }
+    
+    &__panel {
+        position: relative;
+        display: inline-block;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+    }
+    
+    &__content {
+        display: block;
+        float: left;
+        width: 100%;
+        margin-top: -1px;
+        padding: $marginMedium 0;
+        background: $white;
+        border-top: 1px solid $greyMedium;
+    }
+}
+
+.tabs-menu {
+    @include clearfix;
+    text-align: center;
+    
+    &__tab {
+        display: inline;
+    }
+    
+    &__radio {
+        position: fixed;
+        height: 1px;
+        width: 1px;
+        opacity: 0;
+        clip: rect(0 0 0 0);
+        z-index: -1;
+        
+        // if checked than "active state"
+        &:checked + .tabs-menu__label {
+            color: $blue;
+            font-weight: 600;
+            z-index: 1;
+            
+            &:after {
+                position: absolute;
+                display: block;
+                bottom: 0;
+                height: 2px;
+                width: calc(100% - 20px);
+                content: "";
+                background: $blue;
+            }
+        }
+        
+        // if checked then display the panel
+        &:checked ~ .tabs-menu__panel {
+            display: inline;
+            
+            .tabs-menu__content {
+                display: block;
+            }
+        }
+    }
+    
+    &__label {
+        position: relative;
+        display: inline-block;
+        padding: 0 $marginMedium;
+        font-size: $fontSizeDefault;
+        line-height: 50px;
+        
+    }
+    
+    &__panel {
+        position: relative;
+        display: inline-block;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+    }
+    
+    &__content {
+        display: none;
+        float: left;
+        width: 100%;
+        margin-top: -1px;
+        padding: $marginMedium 0;
+        text-align: left;
+        background: $white;
+        border-top: 10px solid $pageBackground;
+    }
+}
