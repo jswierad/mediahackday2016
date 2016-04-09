@@ -10,6 +10,7 @@ import (
 	"github.com/jmoiron/sqlx"
 	_ "github.com/mattn/go-sqlite3"
 	"log"
+	"strings"
 )
 
 var db *sqlx.DB
@@ -31,7 +32,21 @@ func hello(w http.ResponseWriter, r *http.Request) {
 func Monitor(w http.ResponseWriter, req *http.Request) {
 }
 
+func StoreTags(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	var tags []string
+	decoder := json.NewDecoder(req.Body)
+	err := decoder.Decode(&tags)
+	chkErr(err)
+	log.Println(tags)
+	tags_str := strings.Join(tags, ",")
+	log.Println(tags_str)
+	_, err = db.Exec("UPDATE tags SET tags = ?", tags_str)
+	chkErr(err)
+}
+
 func SwipeOut(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	params := mux.Vars(req)
 	user_id := params["user_id"]
 	ad_id := params["ad_id"]
@@ -40,7 +55,7 @@ func SwipeOut(w http.ResponseWriter, req *http.Request) {
 }
 
 func BlockedAds(w http.ResponseWriter, req *http.Request) {
-
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	params := mux.Vars(req)
 	user_id := params["user_id"]
 
@@ -70,6 +85,7 @@ func main() {
 
 	router := mux.NewRouter()
 	router.HandleFunc("/monitor", Monitor).Methods("GET")
+	router.HandleFunc("/store_tags", StoreTags).Methods("POST")
 	router.HandleFunc("/swipeout/{user_id:[0-9]+}/{ad_id:[a-zA-Z0-9]+}", SwipeOut).Methods("GET")
 	router.HandleFunc("/blocked_ads/{user_id:[0-9]+}", BlockedAds).Methods("GET")
 
