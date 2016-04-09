@@ -1,0 +1,139 @@
+/*------------------------------------
+    COLORS
+------------------------------------*/
+$blueMedium:                    #337ab7;
+
+$greyLightest:                  #FAFAFA;
+$greyLight:                     #E3E3E3;
+$greyMedium:                    #797979;
+$greyDark:                      #2B4049;
+$greyDarkest:                   #253841;
+
+//primary colors
+$blue:                          #5D9CEC;
+$green:                         #5FBEAA;
+$orange:                        #FFBD4A;
+$pink:                          #FB6D9D;
+$purple:                        #7266BA;
+$red:                           #F05050;
+$white:                         #ffffff;
+
+// body + nav background colors
+$pageBackground:                #ecf0f1;
+$navBackground:                 #ffffff;
+$navBackgroundItemActive:       #f4f8fb;
+
+// text colors
+$textColorDark:                 #505458;
+$textColorMedium:               #797979;
+$textColorLight:                #a0a0a0;
+$textLinkBlue:                  #337ab7;
+
+// default foundation color resets
+$primary-color:                 #2199e8;
+$secondary-color:               #777;
+$success-color:                 $green;
+$warning-color:                 $orange;
+$alert-color:                   $red;
+$light-gray:                    #e6e6e6;
+$medium-gray:                   #cacaca;
+$dark-gray:                     #8a8a8a;
+
+$foundation-palette: (
+    primary: #2199e8,
+    secondary: #777,
+    success: $green,
+    warning: $orange,
+    alert: $red,
+);
+
+/*------------------------------------
+    FONTS
+------------------------------------*/
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700);
+
+$fontFamilyDefault:             'Noto Sans', sans-serif;
+
+$fontSizeDefault:               14px;
+$fontSizeSmall:                 $fontSizeDefault - 2px;
+$fontSizeMedium:                $fontSizeDefault;
+$fontSizeLarge:                 $fontSizeDefault + 4px;
+$fontSizeExtraLarge:            $fontSizeDefault + 8px;
+
+$fontWeightNormal:              400;
+$fontWeightBold:                700;
+
+/*------------------------------------
+    MARGINS
+------------------------------------*/
+$marginSmall:                   5px;
+$marginMedium:                  10px;
+$marginLarge:                   15px;
+$marginExtraLarge:              30px;
+
+/*------------------------------------
+    GRID SETTINGS
+------------------------------------*/
+$blockSmall:                    3;
+$blockSmallMedium:              4;
+$blockMedium:                   6;
+$blockLarge:                    12;
+
+/*------------------------------------
+    Z-INDEX variables
+------------------------------------*/
+$zIndexModal:                   2147483647;
+$zIndexMenu:                    $zIndexModal - 1000;
+$zIndexCollapsable:             $zIndexModal - 2000;
+$zIndexInPage:                  $zIndexModal - 3000;
+
+/*------------------------------------
+    CHART SETTINGS
+------------------------------------*/
+$pie-color:                     $green;
+
+/*------------------------------------
+    FOUNDATION OVERRIDES
+------------------------------------*/
+// grid overrides
+$global-width:                  100%;
+$grid-row-width:                $global-width;
+$grid-column-count:             12;
+$grid-column-gutter:            $marginLarge;
+$block-grid-max:                6;
+
+// offcanvas settings
+$offcanvas-size:                300px;
+$offcanvas-background:          $navBackground;
+$offcanvas-exit-background:     rgba($greyDarkest, 0.85);
+$maincontent-class:             'off-canvas-content';
+$maincontent-shadow:            0;
+
+// native html5 slider settings
+$slider-radius:                 50%;
+$slider-handle-background:      $green;
+$slider-background:             $greyLight;
+$slider-fill-background:        $green;
+
+// callouts
+$callout-margin:                0 0 $marginLarge 0;
+$callout-padding:               $marginMedium;
+
+// modals
+$reveal-background:             $white;
+$reveal-width:                  640px; // when no classes like tiny, medium or large are applied
+$reveal-max-width:              90%;
+$reveal-padding:                $marginLarge;
+$reveal-border:                 1px solid $greyLight;
+$reveal-overlay-background:     rgba($greyDarkest, 0.8);
+
+// meters
+$meter-fill-good:               $green;
+$meter-fill-medium:             $orange;
+$meter-fill-bad:                $red;
+
+// progress
+$progress-height: 15px;
+$progress-background: $greyLight;
+$progress-margin-bottom: $marginLarge;
+$progress-meter-background: $blueMedium; // color when no class applies like succes, warning etc

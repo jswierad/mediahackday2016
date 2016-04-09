@@ -1,0 +1,17 @@
+.expectations-bar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 60px;
+	color: $white;
+	font-weight: 600;
+	background: rgba($greyDark, 0.8);
+	
+	button {
+		margin: 0;
+	}
+}
