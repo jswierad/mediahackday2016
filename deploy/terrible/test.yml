@@ -19,7 +19,7 @@ loadbalancers:
           proto: tcp
           cidr:
             - 0.0.0.0/0
-    - name: "hackaton_doc"
+    - name: "hackatondoc"
       group: server
       dns: "doc.hackaton.aws.sanomaservices.nl"
       monitor_url: "http:6060/monitor"
