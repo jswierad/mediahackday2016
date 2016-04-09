@@ -112,6 +112,7 @@ var context_dc_params = 'CATEGORY=home;KEYWORDS=;',
         'article_author' : ''
     };
 </script>
+        <link rel="stylesheet" href="./static/adtransparency.css" type="text/css" media="all">
         <!--[if gte IE 10]><!-->
         <link rel="stylesheet" href="./NU - Het laatste nieuws het eerst op NU.nl_files/438237c37fdb.css" type="text/css" media="all">
         <!--<![endif]-->
@@ -739,7 +740,9 @@ var context_dc_params = 'CATEGORY=home;KEYWORDS=;',
 		</div>
 	<!-- Ende AdCall für das Billboard -->
 
-			<div style="width:50px;height:50px;background-color:red;cursor:pointer" onclick="remove_add()">X</div>        
+		<div id="adtransp-close-container">
+					<div id="adtransp-close-button" tyle="width:50px;height:50px;background-color:red;cursor:pointer;position:relative;top:-50px;" onclick="remove_add()">X</div>        			
+		</div>
     </div>
 </div>
 </div>
