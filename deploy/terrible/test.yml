@@ -19,6 +19,20 @@ loadbalancers:
           proto: tcp
           cidr:
             - 0.0.0.0/0
+    - name: "hackatondoc"
+      group: server
+      dns: "doc.hackaton.aws.sanomaservices.nl"
+      monitor_url: "http:6060/"
+      listener:
+        - instance_port: 6060
+          instance_proto: http
+          lb_port: 80
+          lb_proto: http
+      firewall:      
+        - ingress:
+          proto: tcp
+          cidr:
+            - 0.0.0.0/0
 
 instances:
     - role: server
@@ -29,8 +43,13 @@ instances:
       type: t2.small
       firewall:      
         - ingress: 
-          port: 80
+          port: 8000
           proto: tcp
           cidr:
             - 10.0.0.0/8
-    
+        - ingress: 
+          port: 6060
+          proto: tcp
+          cidr:
+            - 10.0.0.0/8
+   

@@ -1,0 +1,35 @@
+#adtransp-close-container {
+	margin:0 auto;
+	width:800px;
+	height:0;
+
+}
+#adtransp-close-button {
+	width:30px;
+	height:30px;
+	position:relative;
+	top:-30px;
+	left:770px;
+	background-color:#ccc;
+	cursor:pointer;
+}
+#adtransp-close-button i {
+	color:#1cabc8;
+	text-align: center;
+	line-height:30px;
+	font-size:20px;
+}
+#adtransp-close-button .label {
+	display:none;
+	position: absolute;
+	right: 30px;
+	text-align:right;
+	font-size:20px;
+	line-height:30px;
+	background-color:#ccc;
+	white-space: nowrap;
+}
+#adtransp-close-button:hover .label {
+	display:block;
+	padding: 0 0 0 10px;
+}

@@ -13,7 +13,17 @@ create table articles (
     tags varchar(255)
 );
 
+drop table tags;
+
+create table tags (
+    ID INTEGER PRIMARY KEY   AUTOINCREMENT,
+    tags varchar(255)
+);
+
+
 
 insert into blocked_ads (user_id, ad_id) values (1, "123");
 insert into blocked_ads (user_id, ad_id) values (1, "456");
 insert into blocked_ads (user_id, ad_id) values (2, "zzz");
+
+insert into tags (tags) values ("");
