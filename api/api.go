@@ -48,7 +48,7 @@ func SwipeOut(w http.ResponseWriter, req *http.Request) {
 	chkErr(err)
 }
 
-// /clicked_ad/user_id/ad_id [GET] - register the click on the ad
+// /click/user_id/ad_id [GET] - register the click on the ad
 func AdClicked(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	params := mux.Vars(req)
@@ -79,6 +79,27 @@ func BlockedAds(w http.ResponseWriter, req *http.Request) {
 	user_id := params["user_id"]
 
 	rows, err := Db.Query("SELECT DISTINCT ad_id FROM blocked_ads WHERE user_id = ?", user_id)
+	chkErr(err)
+	var ads []string
+
+	for rows.Next() {
+		var ad_id string
+		err = rows.Scan(&ad_id)
+		ads = append(ads, ad_id)
+	}
+
+	chkErr(err)
+	encoder := json.NewEncoder(w)
+	encoder.Encode(ads)
+}
+
+// /clicked_ads/user_id [GET] - returns list of blocked ad_ids as Json ["id1", "id2"...]
+func ClickedAds(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	params := mux.Vars(req)
+	user_id := params["user_id"]
+
+	rows, err := Db.Query("SELECT DISTINCT ad_id FROM clicked_ads WHERE user_id = ?", user_id)
 	chkErr(err)
 	var ads []string
 

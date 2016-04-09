@@ -25,8 +25,9 @@ func main() {
 	router.HandleFunc("/store_tags", api.StoreTags).Methods("POST")
 	router.HandleFunc("/get_tags", api.GetTags).Methods("GET")
 	router.HandleFunc("/swipeout/{user_id:[0-9]+}/{ad_id:[a-zA-Z0-9]+}", api.SwipeOut).Methods("GET")
-	router.HandleFunc("/clicked_ad/{user_id:[0-9]+}/{ad_id:[a-zA-Z0-9]+}", api.AdClicked).Methods("GET")
+	router.HandleFunc("/click/{user_id:[0-9]+}/{ad_id:[a-zA-Z0-9]+}", api.AdClicked).Methods("GET")
 	router.HandleFunc("/blocked_ads/{user_id:[0-9]+}", api.BlockedAds).Methods("GET")
+	router.HandleFunc("/clicked_ads/{user_id:[0-9]+}", api.ClickedAds).Methods("GET")
 
 	http.ListenAndServe(":8000", router)
 }
