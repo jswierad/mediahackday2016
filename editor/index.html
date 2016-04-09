@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Foundation for Sites</title>
 		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="css/vendor/pizza/pizza.css">
 	</head>
 <body>
 	<!-- content starts here -->
@@ -28,10 +29,22 @@
 	        </div>
 			<div class="tabs-menu__tab">
 	            <input class="tabs-menu__radio" type="radio" id="tab-2" name="tab-group">
-	            <label class="tabs-menu__label" for="tab-2">Ad settings</label>
+	            <label class="tabs-menu__label" for="tab-2">Advertisement settings</label>
 	            <div class="tabs-menu__panel">
 	                <div class="tabs-menu__content">
-	                    Advertisement settings tab
+	                    <h1>Advertisement settings</h1>
+
+						<ul data-pie-id="revenue-by-source" data-options='{"donut": "false"}'>
+						  <li data-value="26">Facebook (FAN)</li>
+						  <li data-value="14">Google</li>
+						  <li data-value="8">Media.net</li>
+						  <li data-value="11">AdBlade</li>
+						  <li data-value="7">Media Impact</li>
+						  <li data-value="18">Native advertising</li>
+						  <li data-value="6">Spotify playlist advertising</li>
+						  <li data-value="10">Youtube</li>
+						</ul>
+						<div id="revenue-by-source" style="width:100%;height:200px"></div>
 	                </div>
 	            </div>
 	        </div>
@@ -52,5 +65,13 @@
 	<script src="bower_components/what-input/what-input.js"></script>
 	<script src="bower_components/foundation-sites/dist/foundation.js"></script>
 	<script src="js/app.js"></script>
+	<script src="js/vendor/pizza/dependencies.js"></script>
+    <script src="js/vendor/pizza/pizza.js"></script>
+    <script>
+        $(window).load(function() {
+            Pizza.init();
+            $(document).foundation();
+        });
+    </script>	
 </body>
 </html>
