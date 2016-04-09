@@ -138,17 +138,37 @@
 	            <div class="tabs-menu__panel">
 	                <div class="tabs-menu__content">
 	                    <h1>Advertisement performance</h1>
-						<ul data-pie-id="revenue-by-source" data-options='{"donut": "false"}'>
-						  <li data-value="26">Facebook (FAN)</li>
-						  <li data-value="14">Google</li>
-						  <li data-value="8">Media.net</li>
-						  <li data-value="11">AdBlade</li>
-						  <li data-value="7">Media Impact</li>
-						  <li data-value="18">Native advertising</li>
-						  <li data-value="6">Spotify playlist advertising</li>
-						  <li data-value="10">Youtube</li>
-						</ul>
-						<div id="revenue-by-source" style="width:100%;height:200px"></div>
+	                    <h2>Revenue by source</h2>
+	                    <div class="row">
+  							<div class="small-4 columns">
+	                    		<ul data-pie-id="revenue-by-source" data-options='{"donut": "false"}'>
+								  <li data-value="26">Facebook (FAN)</li>
+								  <li data-value="14">Google</li>
+								  <li data-value="8">Media.net</li>
+								  <li data-value="11">AdBlade</li>
+								  <li data-value="7">Media Impact</li>
+								  <li data-value="18">Native advertising</li>
+								  <li data-value="6">Spotify playlist advertising</li>
+								  <li data-value="10">Youtube</li>
+								</ul>
+		 					</div>
+		 					<div class="small-8 columns">
+								<div id="revenue-by-source" style="width:100%;max-height:100%;"></div>
+							</div>
+						</div>
+	                    <h2>Revenue over time</h2>
+	                    <div class="row">	
+  							<div class="small-4 columns">
+								<ul data-line-id="revenue-over-time" style="list-style: none">
+									<li data-y="0" data-x="01">8 apr. 12:00</li>
+									<li data-y="150" data-x="02">8 apr. 18:00</li>
+									<li data-y="164" data-x="03">9 apr. 00:00</li>
+		 						</ul>
+		 					</div>
+		 					<div class="small-8 columns">
+ 								<div id="revenue-over-time" style="width:100%;height:100%;"></div>
+ 							</div>
+ 						</div>
 					</div>
 	            </div>
 	        </div>
@@ -161,11 +181,12 @@
 	<script src="bower_components/foundation-sites/dist/foundation.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/vendor/pizza/dependencies.js"></script>
+    <script src="js/vendor/pizza/snap.svg-min.js"></script>
     <script src="js/vendor/pizza/pizza.js"></script>
     <script>
         $(window).load(function() {
-            Pizza.init();
             $(document).foundation();
+            Pizza.init();
         });
     </script>	
 </body>
