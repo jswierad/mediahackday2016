@@ -9,29 +9,35 @@
 	</head>
 <body>
 	<!-- content starts here -->
-	<ul class="tabs">
-		<li>
-			<input type="radio" checked name="tabs" id="tab1">
-			<label for="tab1">tab 1</label>
-			<div id="tab-content1" class="tab-content animated fadeIn">
-				content editor
-			</div>
-		</li>
-		<li>
-			<input type="radio" name="tabs" id="tab2">
-			<label for="tab2">tab 2</label>
-			<div id="tab-content2" class="tab-content animated fadeIn">
-				advertisement settings
-			</div>
-		</li>
-		<li>
-			<input type="radio" name="tabs" id="tab3">
-			<label for="tab3">tab 3</label>
-			<div id="tab-content3" class="tab-content animated fadeIn">
-				ad performance part
-			</div>
-		</li>
-	</ul>
+		<div class="tabs-menu">
+			<div class="tabs-menu__tab">
+	            <input class="tabs-menu__radio" type="radio" id="tab-1" name="tab-group" checked="">
+	            <label class="tabs-menu__label" for="tab-3">Content editor</label>
+	            <div class="tabs-menu__panel">
+	                <div class="tabs-menu__content">
+	                    Content editor tab
+	                </div>
+	            </div>
+	        </div>
+			<div class="tabs-menu__tab">
+	            <input class="tabs-menu__radio" type="radio" id="tab-2" name="tab-group">
+	            <label class="tabs-menu__label" for="tab-2">Reviews</label>
+	            <div class="tabs-menu__panel">
+	                <div class="tabs-menu__content">
+	                    Advertisement settings tab
+	                </div>
+	            </div>
+	        </div>
+			<div class="tabs-menu__tab">
+	            <input class="tabs-menu__radio" type="radio" id="tab-3" name="tab-group">
+	            <label class="tabs-menu__label" for="tab-3">Reviews</label>
+	            <div class="tabs-menu__panel">
+	                <div class="tabs-menu__content">
+	                    Advertisement performance tab
+	                </div>
+	            </div>
+	        </div>
+		</div>
 	<!-- content ends here -->
 	
 	
