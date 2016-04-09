@@ -12,6 +12,7 @@
 
 .bootstrap-tagsinput input {
 	display: inline-block;
+	height: 24px;
 	width: auto;
 	max-width: inherit;
 	margin: 0;
@@ -41,6 +42,7 @@
 }
 
 .bootstrap-tagsinput .tag {
+	height: 24px;
 	margin-right: 2px;
 	color: white;
 }
@@ -61,4 +63,23 @@
 
 .bootstrap-tagsinput .tag [data-role="remove"]:hover:active {
 	box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.tt-menu {
+	width: auto;
+	margin-top: 5px;
+	background: $white;
+	border: 1px solid $greyLight;
+	border-top: 0;
+}
+
+.tt-suggestion {
+	padding: 0 $marginLarge;
+	font-size: 0.8rem;
+	line-height: 24px;
+}
+
+.tt-cursor {
+	color: $white;
+	background: $blue;
 }
