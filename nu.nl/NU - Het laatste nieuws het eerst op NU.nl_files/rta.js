@@ -1,0 +1,1 @@
+crtg_content = ''; (function(){document.cookie = 'crtg_rta=' + escape(crtg_content) + '; path=/; expires=Mon, 09 May 2016 17:29:48 GMT; domain=www.nu.nl';})();
