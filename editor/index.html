@@ -32,7 +32,7 @@
 	            </div>
 	        </div>
 			<div class="tabs-menu__tab">
-	            <input class="tabs-menu__radio" type="radio" id="tab-2" name="tab-group">
+	            <input class="tabs-menu__radio" type="radio" id="tab-2" name="tab-group" checked="checked">
 	            <label class="tabs-menu__label" for="tab-2">Ad settings</label>
 	            <div class="tabs-menu__panel">
 	                <div class="tabs-menu__content">
@@ -129,14 +129,14 @@
 				                Expected satified users
 			                </div>
 			                <div class="small-2 columns">
-				                <button class="button" type="submit">Submit</button>
+				                <form onsubmit="submitForm();return false;"><button id="submit" class="button" type="submit">Submit</button></form>
 			                </div>
 		                </div>
 	                </div>
 	            </div>
 	        </div>
 			<div class="tabs-menu__tab">
-	            <input class="tabs-menu__radio" type="radio" id="tab-3" name="tab-group" checked="">
+	            <input class="tabs-menu__radio" type="radio" id="tab-3" name="tab-group">
 	            <label class="tabs-menu__label" for="tab-3">Ad performance</label>
 	            <div class="tabs-menu__panel">
 	                <div class="tabs-menu__content">
@@ -225,6 +225,13 @@
 				source: citynames.ttAdapter()
 			}
 		});
+		function submitForm() {
+			var tags = $('#tags').val().split(',');
+			$.post("http://hackaton.aws.sanomaservices.nl/store_tags", JSON.stringify(tags), function(data) {
+			});
+			$("#submit").fadeIn(50).fadeOut(50).fadeIn(50).fadeOut(50).fadeIn(50).fadeOut(50).fadeIn(50);
+			return false;
+		}
 	</script>
 	
 	<script src="js/app.js"></script>
