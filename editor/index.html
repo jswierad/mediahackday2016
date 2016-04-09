@@ -11,15 +11,15 @@
 	<!-- content starts here -->
 		<div class="tabs-menu">
 			<div class="tabs-menu__tab">
-	            <input class="tabs-menu__radio" type="radio" id="tab-1" name="tab-group" checked="">
+	            <input class="tabs-menu__radio" type="radio" id="tab-1" name="tab-group">
 	            <label class="tabs-menu__label" for="tab-3">Content editor</label>
 	            <div class="tabs-menu__panel">
 	                <div class="tabs-menu__content">
-	                    <div class="large-12 columns">
+	                    <div class="small-12 columns">
 		                    <label>Title</label>
 		                    <input placeholder="" type="text">
 		                </div>
-		                <div class="large-12 columns">
+		                <div class="small-12 columns">
 		                    <label>Content</label>
 		                    <textarea placeholder="" rows="20"></textarea>
 		                </div>
@@ -27,11 +27,106 @@
 	            </div>
 	        </div>
 			<div class="tabs-menu__tab">
-	            <input class="tabs-menu__radio" type="radio" id="tab-2" name="tab-group">
+	            <input class="tabs-menu__radio" type="radio" id="tab-2" name="tab-group" checked="">
 	            <label class="tabs-menu__label" for="tab-2">Ad settings</label>
 	            <div class="tabs-menu__panel">
 	                <div class="tabs-menu__content">
-	                    Advertisement settings tab
+		                <fieldset class="fieldset">
+		                	<legend><strong>Keywords</strong></legend>
+		                	<input type="text" />
+		                </fieldset>
+		                
+	                	<fieldset class="fieldset">
+		                	<legend><strong>Sources</strong></legend>
+		                	<div class="row">
+			                	<div class="small-6 columns">
+				                	<input id="checkbox1" type="checkbox"><label for="checkbox1">Google</label>
+			                	</div>
+			                	<div class="small-3 columns">
+				                	expected revenue
+			                	</div>
+			                	<div class="small-3 columns">
+				                	relevancy
+			                	</div>
+		                	</div>
+		                	<div class="row">
+			                	<div class="small-6 columns">
+				                	<input id="checkbox2" type="checkbox"><label for="checkbox2">Facebook</label>
+			                	</div>
+			                	<div class="small-3 columns">
+				                	expected revenue
+			                	</div>
+			                	<div class="small-3 columns">
+				                	relevancy
+			                	</div>
+		                	</div>
+		                	<div class="row">
+			                	<div class="small-6 columns">
+									<input id="checkbox3" type="checkbox"><label for="checkbox3">Media.net</label>
+			                	</div>
+			                	<div class="small-3 columns">
+				                	expected revenue
+			                	</div>
+			                	<div class="small-3 columns">
+				                	relevancy
+			                	</div>
+		                	</div>
+		                	<div class="row">
+			                	<div class="small-6 columns">
+				                	<input id="checkbox4" type="checkbox"><label for="checkbox4">Adblade</label>
+			                	</div>
+			                	<div class="small-3 columns">
+				                	expected revenue
+			                	</div>
+			                	<div class="small-3 columns">
+				                	relevancy
+			                	</div>
+		                	</div>
+		                	<div class="row">
+			                	<div class="small-6 columns">
+				                	<input id="checkbox5" type="checkbox"><label for="checkbox5">Media Impact</label>
+			                	</div>
+			                	<div class="small-3 columns">
+				                	expected revenue
+			                	</div>
+			                	<div class="small-3 columns">
+				                	relevancy
+			                	</div>
+		                	</div>
+		                	<div class="row">
+			                	<div class="small-6 columns">
+				                	<input id="checkbox6" type="checkbox"><label for="checkbox6">Native Advertising</label>
+			                	</div>
+			                	<div class="small-3 columns">
+				                	expected revenue
+			                	</div>
+			                	<div class="small-3 columns">
+				                	relevancy
+			                	</div>
+		                	</div>
+		                	<div class="row">
+			                	<div class="small-6 columns">
+				                	<input id="checkbox7" type="checkbox"><label for="checkbox7">Youtube</label>
+			                	</div>
+			                	<div class="small-3 columns">
+				                	expected revenue
+			                	</div>
+			                	<div class="small-3 columns">
+				                	relevancy
+			                	</div>
+		                	</div>
+		                </fieldset>
+		                <div class="expectations-bar">
+			                <div class="small-5 columns">
+				                Expected revenue (value) per day
+			                </div>
+			                <div class="small-5 columns">
+				                Expected satified users
+			                </div>
+			                <div class="small-2 columns">
+				                buttons
+			                </div>
+		                </div>
 	                </div>
 	            </div>
 	        </div>
