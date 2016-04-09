@@ -1,0 +1,73 @@
+.tabs-menu {
+    @include clearfix;
+    text-align: center;
+	background: $greyDark;
+    
+    &__tab {
+        display: inline;
+    }
+    
+    &__radio {
+        position: fixed;
+        height: 1px;
+        width: 1px;
+        opacity: 0;
+        clip: rect(0 0 0 0);
+        z-index: -1;
+        
+        // if checked than "active state"
+        &:checked + .tabs-menu__label {
+            color: $white;
+            font-weight: 600;
+            z-index: 1;
+            
+            &:after {
+                position: absolute;
+                display: block;
+                bottom: 0;
+                height: 2px;
+                width: calc(100% - 20px);
+                content: "";
+                background: $white;
+            }
+        }
+        
+        // if checked then display the panel
+        &:checked ~ .tabs-menu__panel {
+            display: inline;
+            
+            .tabs-menu__content {
+                display: block;
+            }
+        }
+    }
+    
+    &__label {
+        position: relative;
+        display: inline-block;
+        padding: 0 $marginMedium;
+        color: $white;
+        font-size: $fontSizeDefault;
+        line-height: 50px;
+        
+    }
+    
+    &__panel {
+        position: relative;
+        display: inline-block;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+    }
+    
+    &__content {
+        display: none;
+        float: left;
+        width: 100%;
+        margin-top: -1px;
+        padding: $marginExtraLarge;
+        text-align: left;
+        background: $white;
+        border-top: 2px solid $green;
+    }
+}
