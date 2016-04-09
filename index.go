@@ -28,6 +28,9 @@ func hello(w http.ResponseWriter, r *http.Request) {
 
 } */
 
+func Monitor(w http.ResponseWriter, req *http.Request) {
+}
+
 func SwipeOut(w http.ResponseWriter, req *http.Request) {
 	params := mux.Vars(req)
 	user_id := params["user_id"]
@@ -66,6 +69,7 @@ func main() {
 	chkErr(err)
 
 	router := mux.NewRouter()
+	router.HandleFunc("/monitor", Monitor).Methods("GET")
 	router.HandleFunc("/swipeout/{user_id:[0-9]+}/{ad_id:[a-zA-Z0-9]+}", SwipeOut).Methods("GET")
 	router.HandleFunc("/blocked_ads/{user_id:[0-9]+}", BlockedAds).Methods("GET")
 
