@@ -1,0 +1,36 @@
+---
+product: terrible
+cluster: operations
+environment: test
+version: "v1"
+
+loadbalancers:
+    - name: "hackaton"
+      group: server
+      dns: "hackaton.aws.sanomaservices.nl"
+      monitor_url: "http:80/monitor"
+      listener:
+        - instance_port: 80
+          instance_proto: http
+          lb_port: 80
+          lb_proto: http
+      firewall:      
+        - ingress:
+          proto: tcp
+          cidr:
+            - 0.0.0.0/0
+
+instances:
+    - role: server
+      count: 1
+      protect: "false"
+      disk_size: 17
+      ami: centos72-20160301
+      type: t2.small
+      firewall:      
+        - ingress: 
+          port: 80
+          proto: tcp
+          cidr:
+            - 10.0.0.0/8
+    
