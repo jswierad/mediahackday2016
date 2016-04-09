@@ -1,0 +1,11 @@
+.publish-settings {
+	padding: $marginLarge;
+	border: 1px solid $greyLight;
+	background: $greyLightest;
+	
+	strong {
+		display: inline-block;
+		width: 30%;
+		margin-right: $marginLarge;
+	}
+}
