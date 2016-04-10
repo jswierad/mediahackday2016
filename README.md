@@ -1,2 +1,2 @@
 # mediahackday2016
-test
+AdSparency backend and demo; Designed for Media Hack Day 2016, Berlin
