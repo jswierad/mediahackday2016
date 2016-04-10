@@ -81,6 +81,7 @@ func BlockedAds(w http.ResponseWriter, req *http.Request) {
 	rows, err := Db.Query("SELECT DISTINCT ad_id FROM blocked_ads WHERE user_id = ?", user_id)
 	chkErr(err)
 	var ads []string
+	ads = make([]string, 0)
 
 	for rows.Next() {
 		var ad_id string
