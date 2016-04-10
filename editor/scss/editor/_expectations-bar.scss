@@ -9,9 +9,17 @@
 	height: 60px;
 	color: $white;
 	font-weight: 600;
-	background: rgba($greyDark, 0.8);
+	line-height: 30px;
+	vertical-align: middle;
+	background: rgba($black, 0.8);
 	
 	button {
 		margin: 0;
+	}
+	
+	.green {
+		font-weight: 600;
+		font-size: 18px;
+		color: $green;
 	}
 }
