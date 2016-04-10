@@ -4080,9 +4080,15 @@ table.hover tr:nth-of-type(even):hover {
   height: 60px;
   color: #ffffff;
   font-weight: 600;
-  background: rgba(43, 64, 73, 0.8); }
+  line-height: 30px;
+  vertical-align: middle;
+  background: rgba(10, 10, 10, 0.8); }
   .expectations-bar button {
     margin: 0; }
+  .expectations-bar .green {
+    font-weight: 600;
+    font-size: 18px;
+    color: #5FBEAA; }
 
 label {
   color: #797979;
