@@ -2,7 +2,7 @@
 <!-- saved from url=(0017)http://www.nu.nl/ -->
 
 <html class="  js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" src="./NU - Het laatste nieuws het eerst op NU.nl_files/4702f272e2"></script><script type="text/javascript" src="./NU - Het laatste nieuws het eerst op NU.nl_files/get"></script><script type="text/javascript" src="./NU - Het laatste nieuws het eerst op NU.nl_files/optout_check"></script><script src="./NU - Het laatste nieuws het eerst op NU.nl_files/nr-918.min.js"></script><script type="text/javascript" src="./NU - Het laatste nieuws het eerst op NU.nl_files/gigya.js"></script>
-<script src="https://code.jquery.com/jquery-2.2.3.js"></script>
+<!--<script src="https://code.jquery.com/jquery-2.2.3.js"></script>-->
 <script type="text/javascript">
 function load_add() {
 	SmartAdServerAjax(false, 5419, sas_target);	
@@ -22,8 +22,8 @@ function remove_add() {
      console.log(ad_id);
      xhttp.open("GET", "http://hackaton.aws.sanomaservices.nl/swipeout/1/" + ad_id, true);
      xhttp.send();
-     // location.reload();
-     load_add();
+      location.reload();
+     //load_add();
 }
 
 
@@ -34,13 +34,15 @@ function remove_add() {
 
 
         var arg_str = '';
-        var blocked_ids;
+        var blocked_ids=[];
          var xhttp = new XMLHttpRequest();
          xhttp.onreadystatechange = function() {
            if (xhttp.readyState == 4 && xhttp.status == 200) {
             var response = xhttp.responseText;
             blocked_ids = JSON.parse(response);
+            if(blocked_ids){
             arg_str = ';no=' + blocked_ids.join(';no=');
+        }
            }
          };
          //xhttp.open("GET", "http://192.168.2.71:8000/blocked_ads/1", true);
@@ -54,14 +56,14 @@ function remove_add() {
         console.log(arrayLength);
         console.log('hello');
         console.log(blocked_ids);
-        panel = $('.panel__nok')
+        //panel = $('.panel__nok')
        for (var i = 0; i < arrayLength; i++) {
             console.log(blocked_ids[i]);
-            panel.append('        
-                <div class="panel__block">
-                    <img src="http://dummyimage.com/326x100/fff/000" />
-                    <div class="panel__tags"><span>Car</span><span>Volkswagen</span><span>Automotive</span></div>
-                </div>')
+      //      panel.append('        
+        //        <div class="panel__block">
+          //          <img src="http://dummyimage.com/326x100/fff/000" />
+            //        <div class="panel__tags"><span>Car</span><span>Volkswagen</span><span>Automotive</span></div>
+              //  </div>')
 
             //Do something-->
         }
