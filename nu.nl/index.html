@@ -22,8 +22,8 @@ function remove_add() {
      console.log(ad_id);
      xhttp.open("GET", "http://hackaton.aws.sanomaservices.nl/swipeout/1/" + ad_id, true);
      xhttp.send();
-     // location.reload();
-     load_add();
+      location.reload();
+     //load_add();
 }
 
 
@@ -34,13 +34,15 @@ function remove_add() {
 
 
         var arg_str = '';
-        var blocked_ids;
+        var blocked_ids=[];
          var xhttp = new XMLHttpRequest();
          xhttp.onreadystatechange = function() {
            if (xhttp.readyState == 4 && xhttp.status == 200) {
             var response = xhttp.responseText;
             blocked_ids = JSON.parse(response);
+            if(blocked_ids){
             arg_str = ';no=' + blocked_ids.join(';no=');
+        }
            }
          };
          //xhttp.open("GET", "http://192.168.2.71:8000/blocked_ads/1", true);
